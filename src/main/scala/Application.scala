@@ -29,7 +29,7 @@ object Application {
       .foreachBatch { (batchDF: DataFrame, batchId: Long) =>
         println(s"Processing batch $batchId with ${batchDF.count()} records.")
       }
-      .option("checkpointLocation", "checkpoint")
+      .option("checkpointLocation", "checkpoints")
       .trigger(Trigger.ProcessingTime("10 seconds"))
       .start()
 
